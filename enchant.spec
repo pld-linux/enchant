@@ -1,17 +1,17 @@
 Summary:	libenchant - generic spell checking library
 Summary(pl):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
-Version:	1.1.3
-Release:	2
+Version:	1.1.5
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/abiword/%{name}-%{version}.tar.gz
-# Source0-md5:	c95186755fe46b27a78d9a85fef2175c
+# Source0-md5:	b7f266ca9241797839929972395a76cf
 URL:		http://www.abisource.com/enchant/
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	libtool
-BuildRequires:	aspell-devel >= 0.50.0
+BuildRequires:	aspell-devel >= 2:0.50.0
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	pkgconfig
 BuildRequires:	uspell-devel >= 1.1.0
@@ -63,7 +63,7 @@ takie znajdzie.
 Summary:	Header files for enchant library
 Summary(pl):	Pliki nag³ówkowe biblioteki enchant
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 2.0
 
 %description devel
@@ -76,7 +76,7 @@ Pliki nag³ówkowe biblioteki enchant.
 Summary:	Static enchant library
 Summary(pl):	Statyczna biblioteka enchant
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static enchant library.
@@ -88,8 +88,8 @@ Statyczna biblioteka enchant.
 Summary:	aspell provider module for Enchant
 Summary(pl):	Modu³ obs³uguj±cy aspella dla Enchanta
 Group:		Libraries
-Requires:	%{name} = %{version}
-Requires:	aspell >= 0.50.0
+Requires:	%{name} = %{version}-%{release}
+Requires:	aspell >= 2:0.50.0
 
 %description aspell
 aspell provider module for Enchant.
@@ -101,7 +101,7 @@ Modu³ obs³uguj±cy aspella dla Enchanta.
 Summary:	ispell provider module for Enchant
 Summary(pl):	Modu³ obs³uguj±cy ispella dla Enchanta
 Group:		Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description ispell
 ispell provider module for Enchant.
@@ -113,7 +113,7 @@ Modu³ obs³uguj±cy ispella dla Enchanta.
 Summary:	myspell provider module for Enchant
 Summary(pl):	Modu³ obs³uguj±cy myspella dla Enchanta
 Group:		Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description myspell
 myspell provider module for Enchant.
@@ -125,7 +125,7 @@ Modu³ obs³uguj±cy myspella dla Enchanta.
 Summary:	uspell provider module for Enchant
 Summary(pl):	Modu³ obs³uguj±cy uspella dla Enchanta
 Group:		Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description uspell
 uspell provider module for Enchant.
