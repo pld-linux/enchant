@@ -10,8 +10,8 @@ Source0:	http://dl.sourceforge.net/abiword/%{name}-%{version}.tar.gz
 URL:		http://www.abisource.com/enchant/
 BuildRequires:	aspell-devel >= 0.50.0
 BuildRequires:	glib2-devel >= 2.0
-#BuildRequires:	libuspell-devel >= 1.1.0
 BuildRequires:	pkgconfig
+BuildRequires:	uspell-devel >= 1.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -135,9 +135,9 @@ Modu³ obs³uguj±cy uspella dla Enchanta.
 
 %build
 %configure \
-	--with-ispell-dir=/usr/lib/ispell
+	--with-ispell-dir=/usr/lib/ispell \
+	--with-uspell-dir=/usr/share/uspell
 # --with-myspell-dir=/some/where
-# --with-uspell-dir=/some/where
 
 %{__make}
 
@@ -188,6 +188,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/enchant/libenchant_myspell.so*
 
-#%files uspell
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_libdir}/enchant/libenchant_uspell.so*
+%files uspell
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/enchant/libenchant_uspell.so*
