@@ -1,18 +1,18 @@
 Summary:	libenchant - generic spell checking library
 Summary(pl):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
-Version:	1.1.6
+Version:	1.2.0
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.abisource.com/downloads/enchant/1.1.6/%{name}-%{version}.tar.gz
-# Source0-md5:	57727c23059e260a2c116c40f005439c
+Source0:	http://www.abisource.com/downloads/enchant/1.2.0/%{name}-%{version}.tar.gz
+# Source0-md5:	e44a734a85fbbadf898fb935ac346f31
 URL:		http://www.abisource.com/enchant/
-BuildRequires:	automake
-BuildRequires:	autoconf
-BuildRequires:	libtool
 BuildRequires:	aspell-devel >= 2:0.50.0
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	glib2-devel >= 2.0
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	uspell-devel >= 1.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -138,10 +138,11 @@ Modu³ obs³uguj±cy uspella dla Enchanta.
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I ac-helpers
 %{__autoconf}
 %{__automake}
 %configure \
+	--disable-binreloc \
 	--with-ispell-dir=/usr/lib/ispell \
 	--with-uspell-dir=/usr/share/uspell
 # --with-myspell-dir=/some/where
@@ -170,6 +171,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/enchant-lsmod
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %dir %{_libdir}/enchant
+%{_datadir}/enchant
 %{_mandir}/man1/enchant.1*
 
 %files devel
