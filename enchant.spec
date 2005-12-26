@@ -161,7 +161,16 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/enchant/*.{la,a}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
+%post
+/sbin/ldconfig
+%banner %{name} -e << EOF
+you should install one of the backends for enchant:
+- enchant-aspell
+- enchant-ispell
+- enchant-myspell
+- enchant-uspell
+and appropriate dictionaries
+EOF
 %postun	-p /sbin/ldconfig
 
 %files
