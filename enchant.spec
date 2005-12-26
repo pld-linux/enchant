@@ -15,6 +15,7 @@ BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	uspell-devel >= 1.1.0
+Requires(post):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
