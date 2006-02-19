@@ -2,7 +2,7 @@ Summary:	libenchant - generic spell checking library
 Summary(pl):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
 Version:	1.2.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.abisource.com/downloads/enchant/1.2.0/%{name}-%{version}.tar.gz
@@ -12,10 +12,10 @@ BuildRequires:	aspell-devel >= 2:0.50.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 2.0
+BuildRequires:	hspell-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	uspell-devel >= 1.1.0
-Requires(post):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -97,6 +97,18 @@ aspell provider module for Enchant.
 
 %description aspell -l pl
 Modu³ obs³uguj±cy aspella dla Enchanta.
+
+%package hspell
+Summary:	aspell provider module for Enchant
+Summary(pl):	Modu³ obs³uguj±cy aspella dla Enchanta
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description hspell
+hspell provider module for Enchant.
+
+%description hspell -l pl
+Modu³ obs³uguj±cy hspella dla Enchanta.
 
 %package ispell
 Summary:	ispell provider module for Enchant
@@ -198,6 +210,10 @@ EOF
 %files aspell
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/enchant/libenchant_aspell.so*
+
+%files hspell
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/enchant/libenchant_hspell.so*
 
 %files ispell
 %defattr(644,root,root,755)
