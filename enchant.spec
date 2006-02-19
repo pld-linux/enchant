@@ -99,8 +99,8 @@ aspell provider module for Enchant.
 Modu³ obs³uguj±cy aspella dla Enchanta.
 
 %package hspell
-Summary:	aspell provider module for Enchant
-Summary(pl):	Modu³ obs³uguj±cy aspella dla Enchanta
+Summary:	hspell provider module for Enchant
+Summary(pl):	Modu³ obs³uguj±cy hspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
