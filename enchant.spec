@@ -179,6 +179,7 @@ rm -rf $RPM_BUILD_ROOT
 %banner %{name} -e << EOF
 you should install one of the backends for enchant:
 - enchant-aspell
+- enchant-hspell
 - enchant-ispell
 - enchant-myspell
 - enchant-uspell
