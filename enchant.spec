@@ -1,12 +1,12 @@
 Summary:	libenchant - generic spell checking library
 Summary(pl):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
-Version:	1.2.0
-Release:	2
+Version:	1.2.5
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.abisource.com/downloads/enchant/1.2.0/%{name}-%{version}.tar.gz
-# Source0-md5:	e44a734a85fbbadf898fb935ac346f31
+Source0:	http://www.abisource.com/downloads/enchant/1.2.5/%{name}-%{version}.tar.gz
+# Source0-md5:	e64ec808ed2cb687c242ebb835faeb61
 URL:		http://www.abisource.com/enchant/
 BuildRequires:	aspell-devel >= 2:0.50.0
 BuildRequires:	autoconf
