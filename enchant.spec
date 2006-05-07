@@ -1,18 +1,22 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# don't build static library
+#
 Summary:	libenchant - generic spell checking library
 Summary(pl):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
-Version:	1.2.5
+Version:	1.2.6
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.abisource.com/downloads/enchant/1.2.5/%{name}-%{version}.tar.gz
-# Source0-md5:	e64ec808ed2cb687c242ebb835faeb61
+Source0:	http://www.abisource.com/downloads/enchant/1.2.6/%{name}-%{version}.tar.gz
+# Source0-md5:	617cfe8910245cc0c4d363b54dd6d207
 URL:		http://www.abisource.com/enchant/
 BuildRequires:	aspell-devel >= 2:0.50.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 2.0
-BuildRequires:	hspell-devel
+BuildRequires:	hspell-devel >= 0.9-3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	uspell-devel >= 1.1.0
@@ -156,6 +160,7 @@ Modu³ obs³uguj±cy uspella dla Enchanta.
 %{__automake}
 %configure \
 	--disable-binreloc \
+	%{!?with_static_libs:--disable-static} \
 	--with-ispell-dir=/usr/lib/ispell \
 	--with-uspell-dir=/usr/share/uspell
 # --with-myspell-dir=/some/where
@@ -204,9 +209,11 @@ EOF
 %{_includedir}/enchant
 %{_pkgconfigdir}/*.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%endif
 
 %files aspell
 %defattr(644,root,root,755)
