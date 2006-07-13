@@ -6,7 +6,7 @@ Summary:	libenchant - generic spell checking library
 Summary(pl):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
 Version:	1.2.6
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.abisource.com/downloads/enchant/1.2.6/%{name}-%{version}.tar.gz
@@ -15,7 +15,7 @@ URL:		http://www.abisource.com/enchant/
 BuildRequires:	aspell-devel >= 2:0.50.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glib2-devel >= 2.0
+BuildRequires:	glib2-devel >= 1:2.12.0
 BuildRequires:	hspell-devel >= 0.9-3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -69,7 +69,7 @@ Summary:	Header files for enchant library
 Summary(pl):	Pliki nag³ówkowe biblioteki enchant
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glib2-devel >= 2.0
+Requires:	glib2-devel >= 1:2.12.0
 
 %description devel
 Header files for enchant library.
@@ -158,6 +158,7 @@ Modu³ obs³uguj±cy uspella dla Enchanta.
 %{__aclocal} -I ac-helpers
 %{__autoconf}
 %{__automake}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"                                                                 
 %configure \
 	--disable-binreloc \
 	%{!?with_static_libs:--disable-static} \
