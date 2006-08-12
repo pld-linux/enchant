@@ -158,7 +158,7 @@ Modu³ obs³uguj±cy uspella dla Enchanta.
 %{__aclocal} -I ac-helpers
 %{__autoconf}
 %{__automake}
-LDFLAGS="%{rpmldflags} -Wl,--as-needed"                                                                 
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--disable-binreloc \
 	%{!?with_static_libs:--disable-static} \
