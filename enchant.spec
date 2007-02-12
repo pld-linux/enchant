@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	libenchant - generic spell checking library
-Summary(pl):	libenchant - ogÛlna biblioteka sprawdzania pisowni
+Summary(pl.UTF-8):   libenchant - og√≥lna biblioteka sprawdzania pisowni
 Name:		enchant
 Version:	1.3.0
 Release:	1
@@ -43,30 +43,30 @@ both provider modules and for dictionaries themselves, when possible.
 Enchant's module location algorithm takes this into account, and gives
 preference to the $USER resources, when found.
 
-%description -l pl
+%description -l pl.UTF-8
 Celem projektu jest dostarczenie wydajnej i rozszerzalnej abstrakcji
-do obs≥ugi rÛønych bibliotek kontroli pisowni. Enchant ma dostarczaÊ
-ogÛlny interfejs do rÛønych istniej±cych bibliotek. Obejmuj± one (ale
-nie s± ograniczone do): Aspella/Pspella, Ispella, Hspella, Uspella.
+do obs≈Çugi r√≥≈ºnych bibliotek kontroli pisowni. Enchant ma dostarczaƒá
+og√≥lny interfejs do r√≥≈ºnych istniejƒÖcych bibliotek. ObejmujƒÖ one (ale
+nie sƒÖ ograniczone do): Aspella/Pspella, Ispella, Hspella, Uspella.
 
-Enchant ma byÊ takøe uøywany w ∂rodowisku wieloplatformowym. Oznacza
-to miÍdzy innymi, øe Enchant ma mieÊ ograniczon± liczbÍ zewnÍtrznych
-zaleøno∂ci do zera lub najbliøej jak to moøliwe. Takøe dowolny klient
-enchanta (czyli procesor tekstu) nie powinien potrzebowaÊ wiedzy,
-jakie backendy s± dostÍpne dla Enchanta. W rzeczywisto∂ci nawet
-Enchant nie powinien potrzebowaÊ takiej informacji. Aby to osi±gn±Ê,
-wszystkie backendy Enchanta s± dynamicznie ≥adowanymi modu≥ami.
+Enchant ma byƒá tak≈ºe u≈ºywany w ≈õrodowisku wieloplatformowym. Oznacza
+to miƒôdzy innymi, ≈ºe Enchant ma mieƒá ograniczonƒÖ liczbƒô zewnƒôtrznych
+zale≈ºno≈õci do zera lub najbli≈ºej jak to mo≈ºliwe. Tak≈ºe dowolny klient
+enchanta (czyli procesor tekstu) nie powinien potrzebowaƒá wiedzy,
+jakie backendy sƒÖ dostƒôpne dla Enchanta. W rzeczywisto≈õci nawet
+Enchant nie powinien potrzebowaƒá takiej informacji. Aby to osiƒÖgnƒÖƒá,
+wszystkie backendy Enchanta sƒÖ dynamicznie ≈Çadowanymi modu≈Çami.
 
-Enchant ma byÊ takøe uøywany w ∂rodowisku wielouøytkownikowym, takim
-jak Unix. Preferuje siÍ, øeby istnia≥y zarÛwno specyficzne dla
-uøytkownika jak i globalne lokalizacje zarÛwno dla modu≥Ûw jak i
-samych s≥ownikÛw, je∂li to moøliwe. Algorytm poszukiwania modu≥Ûw
-Enchanta bierze to pod uwagÍ i preferuje zasoby uøytkownika, je∂li
+Enchant ma byƒá tak≈ºe u≈ºywany w ≈õrodowisku wielou≈ºytkownikowym, takim
+jak Unix. Preferuje siƒô, ≈ºeby istnia≈Çy zar√≥wno specyficzne dla
+u≈ºytkownika jak i globalne lokalizacje zar√≥wno dla modu≈Ç√≥w jak i
+samych s≈Çownik√≥w, je≈õli to mo≈ºliwe. Algorytm poszukiwania modu≈Ç√≥w
+Enchanta bierze to pod uwagƒô i preferuje zasoby u≈ºytkownika, je≈õli
 takie znajdzie.
 
 %package devel
 Summary:	Header files for enchant library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki enchant
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki enchant
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.12.0
@@ -74,24 +74,24 @@ Requires:	glib2-devel >= 1:2.12.0
 %description devel
 Header files for enchant library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki enchant.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki enchant.
 
 %package static
 Summary:	Static enchant library
-Summary(pl):	Statyczna biblioteka enchant
+Summary(pl.UTF-8):   Statyczna biblioteka enchant
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static enchant library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka enchant.
 
 %package aspell
 Summary:	aspell provider module for Enchant
-Summary(pl):	Modu≥ obs≥uguj±cy aspella dla Enchanta
+Summary(pl.UTF-8):   Modu≈Ç obs≈ÇugujƒÖcy aspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	aspell >= 2:0.50.0
@@ -99,56 +99,56 @@ Requires:	aspell >= 2:0.50.0
 %description aspell
 aspell provider module for Enchant.
 
-%description aspell -l pl
-Modu≥ obs≥uguj±cy aspella dla Enchanta.
+%description aspell -l pl.UTF-8
+Modu≈Ç obs≈ÇugujƒÖcy aspella dla Enchanta.
 
 %package hspell
 Summary:	hspell provider module for Enchant
-Summary(pl):	Modu≥ obs≥uguj±cy hspella dla Enchanta
+Summary(pl.UTF-8):   Modu≈Ç obs≈ÇugujƒÖcy hspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description hspell
 hspell provider module for Enchant.
 
-%description hspell -l pl
-Modu≥ obs≥uguj±cy hspella dla Enchanta.
+%description hspell -l pl.UTF-8
+Modu≈Ç obs≈ÇugujƒÖcy hspella dla Enchanta.
 
 %package ispell
 Summary:	ispell provider module for Enchant
-Summary(pl):	Modu≥ obs≥uguj±cy ispella dla Enchanta
+Summary(pl.UTF-8):   Modu≈Ç obs≈ÇugujƒÖcy ispella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description ispell
 ispell provider module for Enchant.
 
-%description ispell -l pl
-Modu≥ obs≥uguj±cy ispella dla Enchanta.
+%description ispell -l pl.UTF-8
+Modu≈Ç obs≈ÇugujƒÖcy ispella dla Enchanta.
 
 %package myspell
 Summary:	myspell provider module for Enchant
-Summary(pl):	Modu≥ obs≥uguj±cy myspella dla Enchanta
+Summary(pl.UTF-8):   Modu≈Ç obs≈ÇugujƒÖcy myspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description myspell
 myspell provider module for Enchant.
 
-%description myspell -l pl
-Modu≥ obs≥uguj±cy myspella dla Enchanta.
+%description myspell -l pl.UTF-8
+Modu≈Ç obs≈ÇugujƒÖcy myspella dla Enchanta.
 
 %package uspell
 Summary:	uspell provider module for Enchant
-Summary(pl):	Modu≥ obs≥uguj±cy uspella dla Enchanta
+Summary(pl.UTF-8):   Modu≈Ç obs≈ÇugujƒÖcy uspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description uspell
 uspell provider module for Enchant.
 
-%description uspell -l pl
-Modu≥ obs≥uguj±cy uspella dla Enchanta.
+%description uspell -l pl.UTF-8
+Modu≈Ç obs≈ÇugujƒÖcy uspella dla Enchanta.
 
 %prep
 %setup -q
