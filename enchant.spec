@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	libenchant - generic spell checking library
-Summary(pl.UTF-8):   libenchant - ogólna biblioteka sprawdzania pisowni
+Summary(pl.UTF-8):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
 Version:	1.3.0
 Release:	1
@@ -66,7 +66,7 @@ takie znajdzie.
 
 %package devel
 Summary:	Header files for enchant library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki enchant
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki enchant
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.12.0
@@ -79,7 +79,7 @@ Pliki nagłówkowe biblioteki enchant.
 
 %package static
 Summary:	Static enchant library
-Summary(pl.UTF-8):   Statyczna biblioteka enchant
+Summary(pl.UTF-8):	Statyczna biblioteka enchant
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -91,7 +91,7 @@ Statyczna biblioteka enchant.
 
 %package aspell
 Summary:	aspell provider module for Enchant
-Summary(pl.UTF-8):   Moduł obsługujący aspella dla Enchanta
+Summary(pl.UTF-8):	Moduł obsługujący aspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	aspell >= 2:0.50.0
@@ -104,7 +104,7 @@ Moduł obsługujący aspella dla Enchanta.
 
 %package hspell
 Summary:	hspell provider module for Enchant
-Summary(pl.UTF-8):   Moduł obsługujący hspella dla Enchanta
+Summary(pl.UTF-8):	Moduł obsługujący hspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -116,7 +116,7 @@ Moduł obsługujący hspella dla Enchanta.
 
 %package ispell
 Summary:	ispell provider module for Enchant
-Summary(pl.UTF-8):   Moduł obsługujący ispella dla Enchanta
+Summary(pl.UTF-8):	Moduł obsługujący ispella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -128,7 +128,7 @@ Moduł obsługujący ispella dla Enchanta.
 
 %package myspell
 Summary:	myspell provider module for Enchant
-Summary(pl.UTF-8):   Moduł obsługujący myspella dla Enchanta
+Summary(pl.UTF-8):	Moduł obsługujący myspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -140,7 +140,7 @@ Moduł obsługujący myspella dla Enchanta.
 
 %package uspell
 Summary:	uspell provider module for Enchant
-Summary(pl.UTF-8):   Moduł obsługujący uspella dla Enchanta
+Summary(pl.UTF-8):	Moduł obsługujący uspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
