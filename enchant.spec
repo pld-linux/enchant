@@ -6,7 +6,7 @@ Summary:	libenchant - generic spell checking library
 Summary(pl.UTF-8):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
 Version:	1.3.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.abisource.com/downloads/enchant/%{version}/%{name}-%{version}.tar.gz
@@ -20,6 +20,7 @@ BuildRequires:	hspell-devel >= 0.9-3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	uspell-devel >= 1.1.0
+Suggests:	%{name}-backend
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -95,6 +96,7 @@ Summary(pl.UTF-8):	Moduł obsługujący aspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	aspell >= 2:0.50.0
+Provides:	%{name}-backend
 
 %description aspell
 aspell provider module for Enchant.
@@ -107,6 +109,7 @@ Summary:	hspell provider module for Enchant
 Summary(pl.UTF-8):	Moduł obsługujący hspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
+Provides:	%{name}-backend
 
 %description hspell
 hspell provider module for Enchant.
@@ -119,6 +122,7 @@ Summary:	ispell provider module for Enchant
 Summary(pl.UTF-8):	Moduł obsługujący ispella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
+Provides:	%{name}-backend
 
 %description ispell
 ispell provider module for Enchant.
@@ -131,6 +135,7 @@ Summary:	myspell provider module for Enchant
 Summary(pl.UTF-8):	Moduł obsługujący myspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
+Provides:	%{name}-backend
 
 %description myspell
 myspell provider module for Enchant.
@@ -143,6 +148,7 @@ Summary:	uspell provider module for Enchant
 Summary(pl.UTF-8):	Moduł obsługujący uspella dla Enchanta
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
+Provides:	%{name}-backend
 
 %description uspell
 uspell provider module for Enchant.
@@ -179,17 +185,7 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/enchant/*.{la,a}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-/sbin/ldconfig
-%banner %{name} -e << EOF
-you should install one of the backends for enchant:
-- enchant-aspell
-- enchant-hspell
-- enchant-ispell
-- enchant-myspell
-- enchant-uspell
-and appropriate dictionaries
-EOF
+%post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
 %files
