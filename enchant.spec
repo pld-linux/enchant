@@ -5,12 +5,12 @@
 Summary:	libenchant - generic spell checking library
 Summary(pl.UTF-8):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
-Version:	1.3.0
-Release:	3
+Version:	1.4.2
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.abisource.com/downloads/enchant/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	f7edafae875616b83e7a17a7e5c2d585
+# Source0-md5:	fe4558269ff59f569ab9581c907d58cb
 URL:		http://www.abisource.com/enchant/
 BuildRequires:	aspell-devel >= 2:0.50.0
 BuildRequires:	autoconf
@@ -161,7 +161,7 @@ Moduł obsługujący uspella dla Enchanta.
 
 %build
 %{__libtoolize}
-%{__aclocal} -I ac-helpers
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
@@ -181,6 +181,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # useless - modules loaded through libgmodule
 rm -f $RPM_BUILD_ROOT%{_libdir}/enchant/*.{la,a}
+#Zemberek is an open source Natural Language Processing library for Turkic languages
+rm -f $RPM_BUILD_ROOT%{_libdir}/enchant/libenchant_zemberek.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -193,7 +195,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS MAINTAINERS NEWS README TODO
 %attr(755,root,root) %{_bindir}/enchant
 %attr(755,root,root) %{_bindir}/enchant-lsmod
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*
 %dir %{_libdir}/enchant
 %{_datadir}/enchant
 %{_mandir}/man1/enchant.1*
