@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
 Version:	1.5.0
 Release:	1
-License:	LGPL
+License:	LGPL v2
 Group:		Libraries
 Source0:	http://www.abisource.com/downloads/enchant/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	7dfaed14e142b4a0004b770c9568ed02
@@ -167,9 +167,9 @@ Moduł obsługujący uspella dla Enchanta.
 %configure \
 	--disable-binreloc \
 	%{!?with_static_libs:--disable-static} \
-	--with-ispell-dir=/usr/lib/ispell \
+	--with-ispell-dir=/usr/%{_lib}/ispell \
+	--with-myspell-dir=/usr/share/myspell \
 	--with-uspell-dir=/usr/share/uspell
-# --with-myspell-dir=/some/where
 
 %{__make}
 
@@ -195,40 +195,41 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS MAINTAINERS NEWS README TODO
 %attr(755,root,root) %{_bindir}/enchant
 %attr(755,root,root) %{_bindir}/enchant-lsmod
-%attr(755,root,root) %{_libdir}/lib*.so.*
+%attr(755,root,root) %{_libdir}/libenchant.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libenchant.so.1
 %dir %{_libdir}/enchant
 %{_datadir}/enchant
 %{_mandir}/man1/enchant.1*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libenchant.so
+%{_libdir}/libenchant.la
 %{_includedir}/enchant
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/enchant.pc
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libenchant.a
 %endif
 
 %files aspell
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/enchant/libenchant_aspell.so*
+%attr(755,root,root) %{_libdir}/enchant/libenchant_aspell.so
 
 %files hspell
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/enchant/libenchant_hspell.so*
+%attr(755,root,root) %{_libdir}/enchant/libenchant_hspell.so
 
 %files ispell
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/enchant/libenchant_ispell.so*
+%attr(755,root,root) %{_libdir}/enchant/libenchant_ispell.so
 
 %files myspell
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/enchant/libenchant_myspell.so*
+%attr(755,root,root) %{_libdir}/enchant/libenchant_myspell.so
 
 %files uspell
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/enchant/libenchant_uspell.so*
+%attr(755,root,root) %{_libdir}/enchant/libenchant_uspell.so
