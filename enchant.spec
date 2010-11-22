@@ -1,3 +1,4 @@
+# TODO: voikko backend? (R: libvoikko)
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
@@ -15,11 +16,13 @@ URL:		http://www.abisource.com/enchant/
 BuildRequires:	aspell-devel >= 2:0.50.0
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	dbus-glib-devel >= 0.62
 BuildRequires:	glib2-devel >= 1:2.12.0
 BuildRequires:	hspell-devel >= 0.9-3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	uspell-devel >= 1.1.0
+Requires:	glib2 >= 1:2.12.0
 Suggests:	%{name}-backend
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -156,17 +159,32 @@ uspell provider module for Enchant.
 %description uspell -l pl.UTF-8
 Moduł obsługujący uspella dla Enchanta.
 
+%package zemberek
+Summary:	Zemberek provider module for Enchant
+Summary(pl.UTF-8):	Moduł obsługujący backend zemberek dla Enchanta
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+Requires:	dbus-glib >= 0.62
+Provides:	%{name}-backend
+
+%description zemberek
+Zemberek (Turkish) provider module for Enchant.
+
+%description zemberek -l pl.UTF-8
+Moduł obsługujący backend zemberek (turecki) dla Enchanta.
+
 %prep
 %setup -q
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I ac-helpers
 %{__autoconf}
 %{__automake}
 %configure \
 	--disable-binreloc \
 	%{!?with_static_libs:--disable-static} \
+	--enable-zemberek \
 	--with-ispell-dir=/usr/%{_lib}/ispell \
 	--with-myspell-dir=/usr/share/myspell \
 	--with-uspell-dir=/usr/share/uspell
@@ -180,9 +198,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # useless - modules loaded through libgmodule
-rm -f $RPM_BUILD_ROOT%{_libdir}/enchant/*.{la,a}
-#Zemberek is an open source Natural Language Processing library for Turkic languages
-rm -f $RPM_BUILD_ROOT%{_libdir}/enchant/libenchant_zemberek.so
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/enchant/*.{la,a}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -233,3 +249,7 @@ rm -rf $RPM_BUILD_ROOT
 %files uspell
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/enchant/libenchant_uspell.so
+
+%files zemberek
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/enchant/libenchant_zemberek.so
