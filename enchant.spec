@@ -1,4 +1,3 @@
-# TODO: voikko backend? (R: libvoikko)
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
@@ -20,6 +19,7 @@ BuildRequires:	dbus-glib-devel >= 0.62
 BuildRequires:	glib2-devel >= 1:2.12.0
 BuildRequires:	hspell-devel >= 0.9-3
 BuildRequires:	libtool
+BuildRequires:	libvoikko-devel
 BuildRequires:	pkgconfig
 BuildRequires:	uspell-devel >= 1.1.0
 Requires:	glib2 >= 1:2.12.0
@@ -159,6 +159,19 @@ uspell provider module for Enchant.
 %description uspell -l pl.UTF-8
 Moduł obsługujący uspella dla Enchanta.
 
+%package voikko
+Summary:	Voikko provider module for Enchant
+Summary(pl.UTF-8):	Moduł obsługujący backend voikko dla Enchanta
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+Provides:	%{name}-backend
+
+%description voikko
+Voikko (Finnish) provider module for Enchant.
+
+%description voikko -l pl.UTF-8
+Moduł obsługujący backend voikko (fiński) dla Enchanta.
+
 %package zemberek
 Summary:	Zemberek provider module for Enchant
 Summary(pl.UTF-8):	Moduł obsługujący backend zemberek dla Enchanta
@@ -249,6 +262,10 @@ rm -rf $RPM_BUILD_ROOT
 %files uspell
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/enchant/libenchant_uspell.so
+
+%files voikko
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/enchant/libenchant_voikko.so
 
 %files zemberek
 %defattr(644,root,root,755)
