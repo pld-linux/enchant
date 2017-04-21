@@ -6,7 +6,7 @@ Summary:	libenchant - generic spell checking library
 Summary(pl.UTF-8):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
 Version:	1.6.0
-Release:	6
+Release:	7
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://www.abisource.com/downloads/enchant/%{version}/%{name}-%{version}.tar.gz
@@ -196,6 +196,8 @@ Moduł obsługujący backend zemberek (turecki) dla Enchanta.
 %{__aclocal} -I ac-helpers
 %{__autoconf}
 %{__automake}
+export CFLAGS="%{rpmcflags} -fpermissive"
+export CXXFLAGS="%{rpmcxxflags} -fpermissive"
 %configure \
 	--disable-binreloc \
 	%{!?with_static_libs:--disable-static} \
