@@ -6,21 +6,27 @@ Summary:	libenchant - generic spell checking library
 Summary(pl.UTF-8):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
 # version 2.x packaged as enchant2
-Version:	1.6.0
-Release:	7
+Version:	1.6.1
+Release:	1
 License:	LGPL v2
 Group:		Libraries
-Source0:	http://www.abisource.com/downloads/enchant/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	de11011aff801dc61042828041fb59c7
+# versions up to 1.6.0
+#Source0:	http://www.abisource.com/downloads/enchant/%{version}/%{name}-%{version}.tar.gz
+# 1.6.x > 1.6.0 (for 2.x see enchant2.spec)
+#Source0Download: https://github.com/AbiWord/enchant/releases
+Source0:	https://github.com/AbiWord/enchant/releases/download/enchant-1-6-1/%{name}-%{version}.tar.gz
+# Source0-md5:	4110afe7d7010acbb5c69dd1214fa936
 Patch0:		hunspell-1.4.patch
-URL:		http://www.abisource.com/enchant/
+Patch1:		%{name}-sh.patch
+URL:		https://www.abisource.com/projects/enchant/
 BuildRequires:	aspell-devel >= 2:0.50.0
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.62
 BuildRequires:	glib2-devel >= 1:2.12.0
 BuildRequires:	hspell-devel >= 0.9-3
-BuildRequires:	libtool
+BuildRequires:	hunspell-devel
+BuildRequires:	libtool >= 2:2
 BuildRequires:	libvoikko-devel
 BuildRequires:	pkgconfig
 BuildRequires:	uspell-devel >= 1.1.0
@@ -191,10 +197,11 @@ Moduł obsługujący backend zemberek (turecki) dla Enchanta.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
-%{__aclocal} -I ac-helpers
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 export CFLAGS="%{rpmcflags} -fpermissive"
@@ -226,7 +233,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS MAINTAINERS NEWS README TODO
+%doc AUTHORS MAINTAINERS NEWS README
 %attr(755,root,root) %{_bindir}/enchant
 %attr(755,root,root) %{_bindir}/enchant-lsmod
 %attr(755,root,root) %{_libdir}/libenchant.so.*.*.*
