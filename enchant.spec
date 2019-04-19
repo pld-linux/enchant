@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
 # version 2.x packaged as enchant2
 Version:	1.6.1
-Release:	3
+Release:	4
 License:	LGPL v2
 Group:		Libraries
 # versions up to 1.6.0
@@ -224,6 +224,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # useless - modules loaded through libgmodule
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/enchant/*.{la,a}
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libenchant.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -245,7 +247,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libenchant.so
-%{_libdir}/libenchant.la
 %{_includedir}/enchant
 %{_pkgconfigdir}/enchant.pc
 
