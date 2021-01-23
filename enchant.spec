@@ -223,7 +223,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # useless - modules loaded through libgmodule
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/enchant/*.{la,a}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/enchant/*.la
+%{?with_static_libs:%{__rm} $RPM_BUILD_ROOT%{_libdir}/enchant/*.a}
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libenchant.la
 
