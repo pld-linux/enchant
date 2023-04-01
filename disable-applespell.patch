@@ -1,0 +1,17 @@
+--- enchant-1.6.1/src/Makefile.am.orig	2017-04-04 23:13:57.000000000 +0200
++++ enchant-1.6.1/src/Makefile.am	2023-04-02 00:02:38.807237432 +0200
+@@ -19,14 +19,6 @@
+ libenchant_includedir = $(includedir)/enchant
+ libenchant_include_HEADERS = enchant.h enchant-provider.h enchant++.h
+ 
+-if WITH_APPLESPELL
+-AM_CPPFLAGS += @APPLESPELL_CFLAGS@
+-libenchant_la_LIBADD += @APPLESPELL_LIBS@
+-libenchant_la_LDFLAGS += @APPLESPELL_LDFLAGS@
+-libenchant_la_SOURCES += enchant_cocoa.m enchant_cocoa.h
+-libenchant_include_HEADERS += enchant_cocoa.h
+-endif
+-
+ EXTRA_DIST=enchant.i
+ 
+ if OS_WIN32

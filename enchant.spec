@@ -18,6 +18,7 @@ Source0:	https://github.com/AbiWord/enchant/releases/download/enchant-1-6-1/%{na
 # Source0-md5:	4110afe7d7010acbb5c69dd1214fa936
 Patch0:		hunspell-1.4.patch
 Patch1:		%{name}-sh.patch
+Patch2:		disable-applespell.patch
 URL:		https://www.abisource.com/projects/enchant/
 BuildRequires:	aspell-devel >= 2:0.50.0
 BuildRequires:	autoconf >= 2.50
@@ -198,6 +199,7 @@ Moduł obsługujący backend zemberek (turecki) dla Enchanta.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
