@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	libenchant - ogólna biblioteka sprawdzania pisowni
 Name:		enchant
 # version 2.x packaged as enchant2
 Version:	1.6.1
-Release:	4
+Release:	5
 License:	LGPL v2
 Group:		Libraries
 # versions up to 1.6.0
